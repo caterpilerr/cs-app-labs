@@ -1,0 +1,65 @@
+\documentclass{article}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\lstset{
+  language=C,               
+  numbers=left,             
+  stepnumber=1,             
+  numbersep=10pt,           
+  backgroundcolor=\color{white},
+  showspaces=false,             
+  showtabs=false,               
+  tabsize=2,                    
+  captionpos=b,                 
+  breaklines=true,              
+  breakatwhitespace=true,       
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{blue!40!black},
+  commentstyle=\itshape\color{green!40!black},
+  stringstyle=\color{orange},
+}
+
+\begin{document}
+\section{Part A}
+\subsection{sum.ys Iteratively sum linked list elements}
+\paragraph{Solution}
+The struct \textsf{ELE} used in the \textsf{sum\_list()} function shown on listing \ref{lst:ELE-c}.
+\lstinputlisting[caption={ELE.c}, label={lst:ELE-c}]{../listings/ELE.c}
+The function \textsf{sum\_list()} written is C displayed on listing \ref{lst:sum_list-c}.
+\lstinputlisting[caption={sum\_list.c}, label={lst:sum_list-c}]{../listings/sum_list.c}
+Full example of sum.ys with stack initialization, test data, and main function depicted on lising \ref{lst:sum-ys} \ref{lst:sum-ys}.
+\lstinputlisting[caption={sum.ys}, label={lst:sum-ys}, language={[x86masm]Assembler}]{../listings/sum_list.asm}
+\subsection{rsum.ys Recursively sum linked list elements}
+\paragraph{Solution}
+The same \textsf{ELE} struct from listing \ref{lst:ELE-c} used int the \textsf{rsum\_list()} function.
+The C version of \textsf{rsum\_list()} is on listing \ref{lst:rsum_list-c}.
+\lstinputlisting[caption={rsum\_list.c}, label={lst:rsum_list-c}]{../listings/rsum_list.c}
+Full version of rsum.ys is on listing \ref{lst:rsum-ys}.
+\lstinputlisting[caption={rsum.ys}, label={lst:rsum-ys}, language={[x86masm]Assembler}]{../listings/rsum_list.asm}
+\newpage
+\subsection{copy.ys Copy a source block to a destination block}
+\paragraph{Solution}
+The C version of \textsf{copy\_block()} is on listing \ref{lst:copy-block-c}.
+\lstinputlisting[caption={copy\_block.c}, label={lst:copy-block-c}]{../listings/copy_block.c}
+Final version of copy.ys is on listing \ref{lst:copy-block-ys}.
+\lstinputlisting[caption={copy.ys}, label={lst:copy-block-ys}, language={[x86masm]Assembler}]{../listings/copy_block.asm}
+\newpage
+\section{Part B}
+\paragraph{Solution}
+The updated hcl description of SEQ control signals for implementing IADDQ instruction show on listing \ref{lst:iaddq-seq-hcl}.
+\lstinputlisting[caption={Update SEQ contorl signals for IADDQ instuction}, label={lst:iaddq-seq-hcl}, language={Verilog}]{../listings/seq-full.hcl}
+\section{Part C}
+\paragraph{Solution}
+The optimized version of function \textsf{ncopy()} is shown on \ref{lst:ncopy-asm}. 
+Average \textsf{CPE} after optimization is \textbf{7.98}.
+\lstinputlisting[caption={Optimized version of ncopy.asm}, label={lst:ncopy-asm}, language={[x86masm]Assembler}]{../listings/ncopy.asm}
+\end{document}
+

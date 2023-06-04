@@ -1,0 +1,66 @@
+\documentclass{article}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\begin{document}
+
+\lstset{
+  language=C,                % choose the language of the code
+  numbers=left,                   % where to put the line-numbers
+  stepnumber=1,                   % the step between two line-numbers.        
+  numbersep=10pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  showstringspaces=false,  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{blue!40!black},
+  commentstyle=\itshape\color{green!40!black},
+  stringstyle=\color{orange},
+}
+
+\section{Phase One}
+\paragraph{Answer:}
+\emph{"Border relations with Canada have never been better."}
+\lstinputlisting[caption={Phase 1}]{../restored-functions/phase_1.c}
+\section{Phase Two}
+\paragraph{Answer:}
+\emph{"1 2 4 8 16 32"}
+\lstinputlisting[caption={Phase 2}]{../restored-functions/phase_2.c}
+\section{Phase Three}
+\paragraph{Answer:}
+Any string with following \textbf{a} and \textbf{k} combinations, for example: \newline\emph{"3 256"}
+\lstinputlisting[caption={Phase 3}]{../restored-functions/phase_3.c}
+\section{Phase Four}
+\paragraph{Answer:}
+\emph{"7 0"}
+\lstinputlisting[caption={Phase 4}]{../restored-functions/phase_4.c}
+\subparagraph{func4}
+It is an additional function intended for the obfuscation of function \emph{phase4()} logic.
+\lstinputlisting[caption={func4}]{../restored-functions/func4.c}
+\section{Phase Five}
+\paragraph{Answer:}
+\emph{"IONEFG"}
+\lstinputlisting[caption={Phase 5}]{../restored-functions/phase_5.c}
+\section{Phase Six}
+\paragraph{Answer:}
+\emph{"4 3 2 1 6 5"}
+\lstinputlisting[caption={Phase 6}]{../restored-functions/phase_6.c}
+\newpage
+\section{Utility Functions}
+\subsection{String Length}
+\lstinputlisting[caption={String Length}]{../restored-functions/string_length.c}
+\subsection{Strings Not Equal}
+\lstinputlisting[caption={Strings Not Equal}]{../restored-functions/strings_not_equal.c}
+\subsection{Read six numbers}
+\lstinputlisting[caption={Read Six Numbers}, label={lst:listing-c}]{../restored-functions/read_six_numbers.c}
+\end{document}

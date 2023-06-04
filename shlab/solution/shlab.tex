@@ -1,0 +1,83 @@
+\documentclass{article}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+\usepackage[utf8x]{inputenc}
+\usepackage[framemethod=tikz]{mdframed}
+
+\lstset{
+  language=C,               
+  numbers=left,             
+  stepnumber=1,             
+  numbersep=10pt,           
+  backgroundcolor=\color{white},
+  showspaces=false,             
+  showtabs=false,               
+  tabsize=2,                    
+  captionpos=b,                 
+  breaklines=true,              
+  breakatwhitespace=true,       
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{blue!40!black},
+  commentstyle=\itshape\color{green!40!black},
+  stringstyle=\color{orange},
+}
+
+\newcommand\mylstcaption{}
+
+\mdfdefinestyle{mymdstyle}{
+hidealllines=true,
+middleextra={
+  \node[anchor=west] at (O|-P)
+    {\lstlistingname~\thelstlisting\  (Cont.):~\mylstcaption};},
+secondextra={
+  \node[anchor=west] at (O|-P)
+    {\lstlistingname~\thelstlisting\  (Cont.):~\mylstcaption};},
+splittopskip=2\baselineskip
+}
+
+\surroundwithmdframed[style=mymdstyle]{lstlisting}
+\newmdenv[style=mymdstyle]{mdlisting}
+
+\begin{document}
+\section{Writing a simple linux shell}
+\paragraph{Solution}
+This is a simple linux shell named \textit{tsh}. It has the following features:
+\begin{itemize}
+    \item The command line typed by the user should consist of a name and zero or more arguments, 
+    all separated by one or more spaces. 
+    If name is a built-in command, then \textit{tsh} handles it immediately
+    and waits for the next command line. Otherwise, \textit{tsh} assumes that name is the path of an
+    executable file, which it loads and runs in the context of an initial child process.
+    \item \textit{tsh} does not support pipes (\textbar) or I/O redirection (\textless \space and \textgreater).
+    \item Typing \textsf{ctrl-c} (\textsf{ctrl-z}) causes a SIGINT (SIGTSTP) signal to be sent to the current foreground job, 
+    as well as any descendents of that job. If there is no foreground job, then the signal will have no effect.
+    \item If the command line ends with an ampersand \&, then \textit{tsh} runs the job in the background.
+    Otherwise, it runs the job in the foreground.
+    \item Each job can be identified by either a process ID (PID) or a job ID (JID), which is a positive integer 
+    assigned by \textsf{tsh}. JIDs are denoted on the command line by the prefix \textsf{\%}. For example, \textsf{\%5} 
+    denotes JID 5, and \textsf{5} denotes PID 5.
+    \item \textit{tsh} supports the following built-in commands:
+    \begin{itemize}
+        \item \textsf{quit} command terminates the shell.
+        \item \textsf{jobs} command lists all background jobs.
+        \item \textsf{bg \textless job\textgreater} command restarts \textsf{\textless job\textgreater} 
+        by sending it a SIGCONT signal, and then runs it in the background. 
+        the \textsf{\textless job\textgreater} argument can be either a PID or a JID.
+        \item \textsf{fg \textless job\textgreater} command restarts \textsf{\textless job\textgreater} 
+        by sending it a SIGCONT signal, and then runs it in
+the foreground. The \textsf{\textless job\textgreater} argument can be either a PID or a JID.
+    \end{itemize}
+\end{itemize}
+The source code of the \textit{tsh} is shown on listing \ref{lst:c1}.
+\renewcommand\mylstcaption{\textit{tsh}.c}
+\begin{mdlisting}
+    \lstinputlisting[caption=\mylstcaption, label=lst:c1]{../tsh.c}
+\end{mdlisting}
+\end{document}

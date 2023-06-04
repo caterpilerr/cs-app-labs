@@ -1,0 +1,417 @@
+ SUBMITRI
+ connectI
+ illegalI
+ large. I
+ or unprI
+ server
+ the serI
+ to the I
+%%%02X
+%J$ 
+%R$ 
+%Z$ 
+%b$ 
+%d %d %d %d %d %d
+%d %d %s
+%j$ 
+%r$ 
+%s %d %[a-zA-z ]
+%s: Error: Couldn't open %s
+%z$ 
+&i#P`
+***truncH
+*t#A
+.bss
+.comment
+.data
+.debug_abbrev
+.debug_aranges
+.debug_info
+.debug_line
+.debug_loc
+.debug_str
+.dynamic
+.dynstr
+.dynsym
+.eh_frame
+.eh_frame_hdr
+.fini
+.fini_array
+.gnu.hash
+.gnu.version
+.gnu.version_r
+.got
+.got.plt
+.init
+.init_array
+.interp
+.jcr
+.note.ABI-tag
+.note.gnu.build-id
+.rela.dyn
+.rela.plt
+.rodata
+.shstrtab
+.strtab
+.symtab
+.text
+/lib64/ld-linux-x86-64.so.2
+/usr/include
+/usr/include/x86_64-linux-gnu/bits
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include
+/usr0/home/droh/ics3/im/labs/bomblab/src
+8[]A\A]A^A_
+;*3$"
+<built-in>
+=m$ 
+ATUSH
+AUTORESULT_STRING=%s
+AVAUATUSH
+AWAVAUATUSH
+AWAVAUATUSH
+BOOM!!!
+Border relations with Canada have never been better.
+But finding it and solving it are quite different...
+Congratulations! You've defused the bomb!
+Curses, you've found the secret phase!
+D$(H
+D$,A
+D$/A
+D$h1
+D$hdH3
+DrEvil
+E ockef
+E(ddref
+E,ss
+Error: CH
+Error: CI
+Error: CI
+Error: CI
+Error: CI
+Error: CI
+Error: DH
+Error: DI
+Error: HTTP request failed with error %d: %s
+Error: Input line too long
+Error: Premature EOF on stdin
+Error: RI
+Error: RI
+Error: UI
+Error: Unable to connect to server %s
+F ockefA
+F servfA
+F$erA
+F(ddrefA
+F(ver
+F,ssA
+F0ervefA
+F8fA
+F@r.A
+GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1
+GCC: (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+GET /%s/submitr.pl/?userid=%s&lab=%s&result=%s&submit=submit HTTP/1.0
+GLIBC_2.2.5
+GLIBC_2.3
+GLIBC_2.3.4
+GLIBC_2.4
+GLIBC_2.7
+GNU C 4.8.1 -mtune=generic -march=x86-64 -ggdb -O1 -fstack-protector
+GRADE_BOMB
+Good work!  On to the next...
+H;D$
+Halfway there!
+IncreaseI
+Invalid phase%s
+L$,H
+NS is unH
+NS is unI
+OK. :-)
+P[]A\A]A^
+Phase 1 defused. How about the next one?
+Program timed out after %d seconds
+So you got that one.  Try this one.
+That's number 2.  Keep going!
+The bomb has blown up.
+Tt H
+UH-@7`
+UH-@7`
+Usage: %s [<input_file>]
+Welcome to my fiendish little bomb. You have 6 phases with
+Well...
+Wow! You've defused the secret stage!
+[]A\
+[]A\A]A^A_
+\$ H
+_DYNAMIC
+_GLOBAL_OFFSET_TABLE_
+_IO_FILE
+_IO_backup_base
+_IO_buf_base
+_IO_buf_end
+_IO_lock_t
+_IO_marker
+_IO_read_base
+_IO_read_end
+_IO_read_ptr
+_IO_save_base
+_IO_save_end
+_IO_stdin_used
+_IO_write_base
+_IO_write_end
+_IO_write_ptr
+_ITM_deregisterTMCloneTable
+_ITM_registerTMCloneTable
+_Jv_RegisterClasses
+_MAXBUF
+__FRAME_END__
+__JCR_END__
+__JCR_LIST__
+__TMC_END__
+__bss_start
+__builtin_puts
+__ctype_b_loc
+__ctype_b_loc@@GLIBC_2.3
+__data_start
+__do_global_dtors_aux
+__do_global_dtors_aux_fini_array_entry
+__dso_handle
+__errno_location
+__errno_location@@GLIBC_2.2.5
+__fmt
+__fprintf_chk
+__fprintf_chk@@GLIBC_2.3.4
+__frame_dummy_init_array_entry
+__gmon_start__
+__gmon_start__
+__init_array_end
+__init_array_start
+__isoc99_sscanf
+__isoc99_sscanf@@GLIBC_2.7
+__libc_csu_fini
+__libc_csu_init
+__libc_start_main
+__libc_start_main@@GLIBC_2.2.5
+__memcpy_chk
+__memcpy_chk@@GLIBC_2.3.4
+__memmove_chk
+__memmove_chk@@GLIBC_2.3.4
+__off64_t
+__off_t
+__pad1
+__pad2
+__pad3
+__pad4
+__pad5
+__printf_chk
+__printf_chk
+__printf_chk@@GLIBC_2.3.4
+__sprintf_chk
+__sprintf_chk@@GLIBC_2.3.4
+__stack_chk_fail
+__stack_chk_fail@@GLIBC_2.4
+_chain
+_cur_column
+_edata
+_end
+_fileno
+_fini
+_flags
+_flags2
+_init
+_lock
+_markers
+_mode
+_next
+_old_offset
+_pos
+_sbuf
+_shortbuf
+_start
+_unused2
+_vtable_offset
+able to H
+able to H
+able to I
+able to I
+able to I
+able to I
+able to I
+able to I
+age fromI
+alarm
+alarm@@GLIBC_2.2.5
+angelshark.ics.cs.cmu.edu
+argc
+argv
+array.3449
+ated***
+blank_line
+bomb.c
+bomb.c
+bomb.c
+bomb_id
+call_gmon_start
+changeme.ics.cs.cmu.edu
+characteI
+close
+close@@GLIBC_2.2.5
+completed.6976
+connect
+connect@@GLIBC_2.2.5
+create sH
+create sI
+crtstuff.c
+csapp
+data_start
+deregister_tm_clones
+ders froI
+driver_post
+driverlib.c
+esult stI
+esult stI
+exit
+exit
+exit@@GLIBC_2.2.5
+explode_bomb
+fflush
+fflush@@GLIBC_2.2.5
+fgets
+fgets@@GLIBC_2.2.5
+flyers
+fopen
+fopen
+fopen@@GLIBC_2.2.5
+frame_dummy
+fun7
+func4
+getenv
+getenv@@GLIBC_2.2.5
+gethostbyname
+gethostbyname@@GLIBC_2.2.5
+greatwhite.ics.cs.cmu.edu
+host_table
+infile
+infile
+init_driver
+init_timeout
+initialize_bomb
+initialize_bomb
+initialize_bomb_solve
+input
+input_strings
+intable I
+invalid_phase
+l$ L
+libc.so.6
+libio.h
+lient unH
+lient unI
+lient unI
+lient unI
+lient unI
+lient unI
+long long int
+long long unsigned int
+m serverI
+maduiersnfotvbylSo you think you can stop the bomb with ctrl-c, do you?
+main
+main
+makoshark.ics.cs.cmu.edu
+nable toI
+node1
+node2
+node3
+node4
+node5
+node6
+num_input_strings
+phase_1
+phase_1
+phase_2
+phase_2
+phase_3
+phase_3
+phase_4
+phase_4
+phase_5
+phase_5
+phase_6
+phase_6
+phase_defused
+phase_defused
+phases.c
+phases.h
+printf
+puts
+puts@@GLIBC_2.2.5
+r from sI
+read
+read firI
+read heaI
+read staI
+read@@GLIBC_2.2.5
+read_line
+read_line
+read_six_numbers
+register_tm_clones
+resolve H
+resolve I
+ring conI
+ring tooI
+rio_readlineb
+scratch
+secret_phase
+server aH
+server aI
+short int
+short unsigned int
+sig_handler
+sigalrm_handler
+signal
+signal@@GLIBC_2.2.5
+size_t
+sizetype
+skip
+sleep
+sleep@@GLIBC_2.2.5
+socket
+socket@@GLIBC_2.2.5
+st headeI
+stddef.h
+stderr
+stderr@@GLIBC_2.2.5
+stdin
+stdin
+stdin@@GLIBC_2.2.5
+stdio.h
+stdio2.h
+stdlib.h
+stdout
+stdout
+stdout@@GLIBC_2.2.5
+strcpy
+strcpy@@GLIBC_2.2.5
+string_length
+strings_not_equal
+strtol
+strtol@@GLIBC_2.2.5
+submitr
+support.c
+support.h
+t$(L
+t$0D
+t$@H
+t$@H
+t$@H
+t$@L
+t$PH
+t%:E
+tains anI
+tus messI
+types.h
+unsigned char
+which to blow yourself up. Have a nice day!
+write
+write toI
+write@@GLIBC_2.2.5
+|$0H

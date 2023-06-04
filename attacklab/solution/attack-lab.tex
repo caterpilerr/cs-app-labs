@@ -1,0 +1,105 @@
+\documentclass{article}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\lstset{
+  language=C,               
+  numbers=left,             
+  stepnumber=1,             
+  numbersep=10pt,           
+  backgroundcolor=\color{white},
+  showspaces=false,             
+  showtabs=false,               
+  tabsize=2,                    
+  captionpos=b,                 
+  breaklines=true,              
+  breakatwhitespace=true,       
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{blue!40!black},
+  commentstyle=\itshape\color{green!40!black},
+  stringstyle=\color{orange},
+}
+
+
+\begin{document}
+\section{Part 1: Code injection}
+\subsection{Level 1}
+\paragraph{Solution}
+Custom function \textsf{Get()} used by the function \textsf{getbuf()}, shown on listing \ref{lst:getbuf-c} doesn't implement any validation for the input string length.
+\lstinputlisting[caption={Getbuf}, label={lst:getbuf-c}]{../listings/getbuf.c}
+To call function \textsf{touch1()} we can enter a random string with the length equal to the buffer limit plus
+eight additional bytes equal to the address of function \textsf{touch1()}.
+Thus, we will overwrite the return address of the caller function \textsf{test()}.
+Then during the execution of the \textbf{ret} instruction,
+it will be popped from the stack and set as the next instruction address.
+To set the exploit string the following data was extracted from the \textsf{ctarget} dump:
+\begin{enumerate}
+  \item \textsf{touch1()} address = \textsf{0x4017c0}
+  \item \textsf{BUFFER\_SIZE} = 40
+\end{enumerate}
+Therefore the possible exploit string in hexadecimal format is shown on \ref{lst:expoit-1-asm}:
+\lstinputlisting[caption={Exploit String One}, label={lst:expoit-1-asm}, language={[x86masm]Assembler}]{../listings/exploit-string-1.asm}
+\subsection{Level 2} \label{phase-1-level-2}
+\paragraph{Solution}
+We have to call \textsf{touch2()} with a new exploit string. We continue to use vulnerability of \textsf{getbuf()}.
+But also we have to add \textsf{cookie} argument to \textsf{touch2()}.
+Therefore, we need to pass its value to \textsf{RDI} register before \textsf{touch2()} execution.
+For that purpose we will create an injection code with following parameters:
+\begin{enumerate}
+  \item \textsf{cookie} = \textsf{0x59b997fa}
+  \item \textsf{touch2()} address = \textsf{0x4017ec}
+\end{enumerate}
+Injection code shown on \ref{lst:injection-2-s}
+\lstinputlisting[caption={Phase 1 Level 2 Injection Code}, label={lst:injection-2-s}, language={[x86masm]Assembler}]{../listings/ctarget-phase-2-injection.s}
+Now we need to create an injection string. First part of the string will contain bytes of injection code from \ref{lst:injection-2-s}.
+After that we push sequence of empty bytes to fill \textsf{getbuf()} buffer (See Level 1).
+And at last place address of the first byte in the buffer, which points at the first injected instruction.
+Because \textsf{ctarget} uses constant addresses, we can get the first byte of the buffer from the program dump =  \textsf{0x5561dc78}. \\
+Resulted hexadecimal representation of the injection string shown on listing \ref{lst:exploit-2}.
+\newpage
+\lstinputlisting[caption={Exploit String Two}, label={lst:exploit-2}, language={[x86masm]Assembler}]{../listings/exploit-string-2.asm}
+\subsection{Level 3}
+\paragraph{Solution}
+This task is similar to Level 2. The key differences are: firstly, a function \textsf{touch3()} instead  of \textsf{touch2()},
+lastly argument for \textsf{touch3()} is a char array of \textsf{cookie} converted to string, instead of int value. \\
+To update the injection string for the call of \textsf{touch3()}, we will simply replace pushed address on line 3 of listing \ref{lst:injection-2-s} with a new one. \\
+Moving to the new argument for function, we will append to the end of the exploit string byte representation of \textsf{cookie} string.
+Since we cannot insert this array right after the injection code, because this memory span will be overwritten by subsequent calls of another functions.
+Also, we have to update \textbf{mov} instruction with address of first char in the array. \\
+All new values required for the exploit string are listed below:
+\begin{enumerate}
+  \item \textsf{touch3()} address = \textsf{0x4018fa}
+  \item \textsf{cookie} char[] \textbf{hex} = \textsf{35 39 62 39 39 37 66 61 00}
+  \item \textsf{*cookieString} = \textsf{0x5561cda8}
+\end{enumerate}
+Updated injection code is shown on listing \ref{lst:injection-3-s}
+\lstinputlisting[caption={Phase 1 Level 3 Injection Code}, label={lst:injection-3-s}, language={[x86masm]Assembler}]{../listings/ctarget-phase-3-injection.s}
+Final version of exploit string depicted on listing \ref{lst:exploit-3}
+\lstinputlisting[caption={Exploit String Three}, label={lst:exploit-3}, language={[x86masm]Assembler}]{../listings/exploit-string-3.asm}
+\section{Part 2 Return Oriented Programming}
+\subsection{Level 1}
+\paragraph{Solution}
+We need to create an exploit string that repeat actions from \ref{phase-1-level-2}.
+Except for now, we can only use return oriented programming.
+For that purpose, we will use the logic from injection code \ref{lst:injection-2-s}. \\
+After reading through dump of \textsf{rtarget} executable.
+We found the following parts of the code \ref{lst:getval_280-asm} and \ref{lst:setval_237-asm}, from which we will create our gadgets.
+\newpage
+\lstinputlisting[caption={Code Block For Gadget 1}, label={lst:getval_280-asm}, language={[x86masm]Assembler}]{../listings/getval_280.asm}
+\lstinputlisting[caption={Code Block For Gadget 2}, label={lst:setval_237-asm}, language={[x86masm]Assembler}]{../listings/setval_237.asm}
+From block for the first gadget on listing \ref{lst:getval_280-asm} we see the last 3 bytes of command on line 2 equal to \textsf{58 90 c3}.
+That sequence can be interpreted as following instructions:
+\lstinputlisting[caption={Gadget 1}, label={lst:gadget-1-asm}, language={[x86masm]Assembler}]{../listings/gadget-1.asm}
+The same way we can interpret the last 4 bytes on line 2 from block on listing \ref{lst:gadget-2-asm}
+\lstinputlisting[caption={Gadget 2}, label={lst:gadget-2-asm}, language={[x86masm]Assembler}]{../listings/gadget-2.asm}
+Combining these two gadgets we see that the logic of them is the same as logic on the injection code from \ref{lst:injection-2-s}.
+Summing up all together we will create the injection string shown on listing \ref{lst:exploit-4}
+\lstinputlisting[caption={Exploit String Four}, label={lst:exploit-4}, language={[x86masm]Assembler}]{../listings/exploit-string-4.asm}
+\end{document}
